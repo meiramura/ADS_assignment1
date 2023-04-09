@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Main {
+    public static int nth(int n) {
+      if (n<2){
+          return n;
+      }
+      return nth(n-1) + nth(n-2);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(nth(n));
+    }
+}
