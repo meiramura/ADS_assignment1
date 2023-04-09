@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+    public static boolean Prime(int n, int i) {
+       if (n<2) {
+           return false;
+       }
+       if (i>Math.sqrt(n)) {
+           return true;
+       }
+       if (n%i == 0) {
+           return false;
+       }
+       return Prime(n, i + 1);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(Prime(n, 2));
+    }
+}
