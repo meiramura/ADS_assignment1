@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static int gcd(int n, int k) {
+        if (n < k) {
+            int temp = n;
+            n = k;
+            k = temp;
+        }
+        if (n%k == 0) {
+            return k;
+        }
+        return gcd(k, n%k);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        System.out.println(gcd(n,k));
+
+
+    }
+}
