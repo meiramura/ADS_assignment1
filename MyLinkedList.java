@@ -182,20 +182,15 @@ public class MyLinkedList<E> implements MyList<E>{
 
     @Override
     public void sort() {
-
-
-
-            Node current = head;
-            while (current.next != null) {
-                if (((Comparable<E>) current.element).compareTo(current.next.element) > 0) {
-                    E temp = current.element;
-                    current.element = current.next.element;
-                    current.next.element = temp;
-
-                }
-                current = current.next;
+        Node current = head;
+        while (current.next != null) {
+            if (((Comparable<E>) current.element).compareTo(current.next.element) > 0) {
+                E temp = current.element;
+                current.element = current.next.element;
+                current.next.element = temp;
             }
-
+            current = current.next;
+        }
     }
 }
 
