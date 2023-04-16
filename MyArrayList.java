@@ -30,7 +30,18 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T>{
 
     @Override
     public void add(T item, int index) {
+        if (index < 0 || index > size)
 
+            throw new IndexOutOfBoundsException();
+        
+        for (int i = size; i > index; i--)
+        {
+            elements[i] = elements[i - 1];
+        }
+        
+        elements[index] = item;
+        
+        size++;
     }
 
     @Override
