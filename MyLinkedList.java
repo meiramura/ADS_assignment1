@@ -180,17 +180,25 @@ public class MyLinkedList<E> implements MyList<E>{
         return -1;
     }
 
-    @Override
-    public void sort() {
-        Node current = head;
-        while (current.next != null) {
-            if (((Comparable<E>) current.element).compareTo(current.next.element) > 0) {
-                E temp = current.element;
-                current.element = current.next.element;
-                current.next.element = temp;
-            }
-            current = current.next;
+   public void sort() {
+        if (size <= 1) {
+            return;
         }
+        boolean swapped;
+        Node current;
+        do {
+            swapped = false;
+            current = head;
+            while (current.next != null) {
+                if (((Comparable) current.element).compareTo(current.next.element) > 0) {
+                    E temp = current.element;
+                    current.element = current.next.element;
+                    current.next.element = temp;
+                    swapped = true;
+                }
+                current = current.next;
+            }
+        } while (swapped);
     }
 }
 
